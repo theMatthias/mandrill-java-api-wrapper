@@ -59,7 +59,7 @@ public abstract class AbstractService {
         try {
             HttpPost request = new HttpPost(baseUrl+payload.getPath());
             String body = objectMapper.writeValueAsString(payload);
-            logger.info(body);
+            logger.debug(body);
             request.setEntity(new StringEntity(body,"UTF-8"));
             HttpResponse response = httpClient.execute(request);
             if (200 == response.getStatusLine().getStatusCode()) {
