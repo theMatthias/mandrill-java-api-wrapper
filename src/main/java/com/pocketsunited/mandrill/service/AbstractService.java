@@ -1,29 +1,27 @@
 package com.pocketsunited.mandrill.service;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pocketsunited.mandrill.data.request.AbstractPayload;
-import com.pocketsunited.mandrill.data.response.Response;
+import java.io.IOException;
+
+import javax.annotation.PostConstruct;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.AbstractHttpEntity;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.PoolingClientConnectionManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.PostConstruct;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pocketsunited.mandrill.data.request.AbstractPayload;
 
 public abstract class AbstractService {
 
     protected final Logger logger = LoggerFactory.getLogger(getClass());
 
-    private String baseUrl = "https://mandrillapp.com/api/1.0";
+    private String baseUrl = "https://static.mandrillapp.com/api/1.0";
 
     HttpClient httpClient;
 
